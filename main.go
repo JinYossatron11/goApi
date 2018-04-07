@@ -18,4 +18,5 @@ func main() {
 	e.GET("/sevens", seven.GetSeven)
 	e.Logger.Fatal(e.Start(":1323"))
 
+	
 }
