@@ -25,4 +25,5 @@ func GetSeven(c echo.Context) error {
 	}
 
 	return c.JSON(http.StatusOK, seven)
+	
 }

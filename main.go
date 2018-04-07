@@ -17,5 +17,4 @@ func main() {
 	e.POST("/sevens", seven.CreateUser)
 	e.GET("/sevens", seven.GetSeven)
 	e.Logger.Fatal(e.Start(":1323"))
-
 }

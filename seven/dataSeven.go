@@ -15,4 +15,5 @@ type Seven struct {
 	ID   bson.ObjectId `bson:"_id" json:"id"`
 	Name string        `bson:"name" json:"name"`
 	Score string        `bson:"score" json:"score"`
+	
 }

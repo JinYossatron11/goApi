@@ -25,8 +25,8 @@ func CreateUser(c echo.Context) error {
 	newId := bson.NewObjectId()
 
 	seven := Seven{
-		ID:   newId,
-		Name: name,
+		ID:    newId,
+		Name:  name,
 		Score: score,
 	}
 
@@ -34,5 +34,6 @@ func CreateUser(c echo.Context) error {
 	if err != nil {
 		return err
 	}
+
 	return c.JSON(http.StatusOK, seven)
 }
