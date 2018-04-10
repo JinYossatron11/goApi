@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/globalsign/mgo"
-	"github.com/globalsign/mgo/bson"
+	// "github.com/globalsign/mgo/bson"
 	"github.com/labstack/echo"
 )
 
@@ -21,13 +21,12 @@ func CreateUser(c echo.Context) error {
 		return err
 	}
 	name := c.FormValue("name")
-	score := c.FormValue("score")
-	newId := bson.NewObjectId()
-
+	price := c.FormValue("price")
+	newId := 1
 	seven := Seven{
 		ID:    newId,
 		Name:  name,
-		Score: score,
+		Price: price,
 	}
 
 	err = session.DB("snack").C("snacks").Insert(seven)
