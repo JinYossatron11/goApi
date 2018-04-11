@@ -11,6 +11,7 @@ import (
 //----------
 // Handlers
 //----------
+var numberId int = 1
 
 func CreateUser(c echo.Context) error {
 	var session *mgo.Session
@@ -22,7 +23,7 @@ func CreateUser(c echo.Context) error {
 	}
 	name := c.FormValue("name")
 	price := c.FormValue("price")
-	newId := 1
+	newId := numberId
 	seven := Seven{
 		ID:    newId,
 		Name:  name,
@@ -33,6 +34,6 @@ func CreateUser(c echo.Context) error {
 	if err != nil {
 		return err
 	}
-
+	numberId++
 	return c.JSON(http.StatusOK, seven)
 }

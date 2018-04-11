@@ -13,5 +13,6 @@ func main() {
 	e.Use(middleware.CORS())
 	e.POST("/sevens", seven.CreateUser)
 	e.GET("/sevens", seven.GetSeven)
+	e.DELETE("/sevens/:id",seven.DeleteId)
 	e.Logger.Fatal(e.Start(":1323"))
 }
