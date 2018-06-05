@@ -19,7 +19,7 @@ func GetSeven(c echo.Context) error {
 		return err
 	}
 
-	err = session.DB("snack").C("snacks").Find(nil).All(&seven)
+	err = session.DB("seven").C("seven").Find(nil).All(&seven)
 	if err != nil {
 		return err
 	}

@@ -30,7 +30,7 @@ func CreateUser(c echo.Context) error {
 		Price: price,
 	}
 
-	err = session.DB("snack").C("snacks").Insert(seven)
+	err = session.DB("seven").C("seven").Insert(seven)
 	if err != nil {
 		return err
 	}

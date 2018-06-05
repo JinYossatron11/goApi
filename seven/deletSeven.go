@@ -20,7 +20,7 @@ func DeleteId(c echo.Context) error {
 	}
 	newId, _ := strconv.Atoi(c.Param("id"))
 
-	err = session.DB("snack").C("snacks").Remove(bson.M{"_id": newId})
+	err = session.DB("seven").C("seven").Remove(bson.M{"_id": newId})
 	if err != nil {
 		return err
 	}

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"projectapi/seven"
+	"github.com/projectapi/seven"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 )
