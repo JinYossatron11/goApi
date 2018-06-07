@@ -2,7 +2,6 @@ package seven
 
 import (
 	"net/http"
-	"strconv"
 
 	"github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
@@ -18,9 +17,7 @@ func DeleteId(c echo.Context) error {
 	if err != nil {
 		return err
 	}
-	newId, _ := strconv.Atoi(c.Param("id"))
-
-	err = session.DB("seven").C("seven").Remove(bson.M{"_id": newId})
+	err = session.DB("seven").C("seven").Remove(bson.M{"_id": bson.ObjectIdHex(c.Param("id"))})
 	if err != nil {
 		return err
 	}
