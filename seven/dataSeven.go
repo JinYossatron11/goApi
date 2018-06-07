@@ -1,6 +1,6 @@
 package seven
 
-// import "github.com/globalsign/mgo/bson"
+import "github.com/globalsign/mgo/bson"
 
 var Config = struct {
 	APPName string `default:"seven"`
@@ -11,7 +11,7 @@ var Config = struct {
 }{}
 
 type Seven struct {
-	ID    int  `bson:"_id" json:"id"`
+	ID    bson.ObjectId  `bson:"_id" json:"id"`
 	Name  string        `bson:"name" json:"name"`
 	Price string        `bson:"price" json:"price"`
 }
