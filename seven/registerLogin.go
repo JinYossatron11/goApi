@@ -8,11 +8,7 @@ import (
 	"github.com/labstack/echo"
 )
 
-//----------
-// Handlers
-//----------
-
-func CreateUser(c echo.Context) error {
+func RegisterLogin(c echo.Context) error {
 	var session *mgo.Session
 	var err error
 	session, err = mgo.Dial(Config.DB.Host)
@@ -20,18 +16,17 @@ func CreateUser(c echo.Context) error {
 	if err != nil {
 		return err
 	}
-	name := c.FormValue("name")
-	price := c.FormValue("price")
+	username := c.FormValue("username")
+	password := c.FormValue("password")
 	newId := bson.NewObjectId()
-	seven := Seven{
-		ID:    newId,
-		Name:  name,
-		Price: price,
+	AuthenUser := AuthenUser{
+		ID:       newId,
+		UserName: username,
+		Password: password,
 	}
-
-	err = session.DB("seven").C("seven").Insert(seven)
+	err = session.DB("seven").C("authenUser").Insert(AuthenUser)
 	if err != nil {
 		return err
 	}
-	return c.JSON(http.StatusOK, seven)
+	return c.JSON(http.StatusOK, AuthenUser)
 }

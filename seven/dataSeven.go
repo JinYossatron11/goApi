@@ -15,3 +15,10 @@ type Seven struct {
 	Name  string        `bson:"name" json:"name"`
 	Price string        `bson:"price" json:"price"`
 }
+
+
+type AuthenUser struct {
+	ID   bson.ObjectId `bson:"_id" json:"id"`
+	UserName   string       `bson:"username" json:"username"`
+	Password   string       `bson:"password" json:"password"`
+}
