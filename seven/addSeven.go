@@ -22,11 +22,14 @@ func CreateUser(c echo.Context) error {
 	}
 	name := c.FormValue("name")
 	price := c.FormValue("price")
+	createBy := c.FormValue("createby")
+
 	newId := bson.NewObjectId()
 	seven := Seven{
 		ID:    newId,
 		Name:  name,
 		Price: price,
+		CreateBy: createBy,
 	}
 
 	err = session.DB("seven").C("seven").Insert(seven)

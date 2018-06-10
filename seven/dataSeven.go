@@ -14,6 +14,7 @@ type Seven struct {
 	ID    bson.ObjectId  `bson:"_id" json:"id"`
 	Name  string        `bson:"name" json:"name"`
 	Price string        `bson:"price" json:"price"`
+	CreateBy string      `bson:"createby" json:"createby"`
 }
 
 

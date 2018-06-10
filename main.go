@@ -12,7 +12,7 @@ func main() {
 	e := echo.New()
 	e.Use(middleware.CORS())
 	e.POST("/sevens", seven.CreateUser)
-	e.GET("/sevens", seven.GetSeven)
+	e.POST("/itemlist", seven.GetSeven)
 	e.DELETE("/sevens/:id",seven.DeleteId)
 	e.POST("/register", seven.RegisterLogin)
 	e.POST("/authen",seven.AuthenLogin)

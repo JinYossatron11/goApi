@@ -1,6 +1,7 @@
 package seven
 
 import (
+	"github.com/globalsign/mgo/bson"
 	"net/http"
 
 	"github.com/globalsign/mgo"
@@ -15,11 +16,10 @@ func GetSeven(c echo.Context) error {
 
 	session, err = mgo.Dial(Config.DB.Host)
 	defer session.Close()
-	if err != nil {
-		return err
-	}
+	createBy := c.FormValue("createby")
 
-	err = session.DB("seven").C("seven").Find(nil).All(&seven)
+
+	err = session.DB("seven").C("seven").Find(bson.M{"createby":createBy}).All(&seven)
 	if err != nil {
 		return err
 	}
