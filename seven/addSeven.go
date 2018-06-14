@@ -22,6 +22,7 @@ func CreateUser(c echo.Context) error {
 	}
 	name := c.FormValue("name")
 	price := c.FormValue("price")
+	createDateTime := c.FormValue("createdatetime")
 	createBy := c.FormValue("createby")
 
 	newId := bson.NewObjectId()
@@ -29,6 +30,7 @@ func CreateUser(c echo.Context) error {
 		ID:    newId,
 		Name:  name,
 		Price: price,
+		CreateDateTime: createDateTime,
 		CreateBy: createBy,
 	}
 
